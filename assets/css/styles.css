@@ -1,0 +1,143 @@
+/*** FONTS ***/
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Rubik+Glitch&display=swap');
+
+/*** VARIABLES & THEMES ***/
+
+/* Referencia a raiz do projeto (ex: tag body 
+é utilizada para declarar variáveis*/
+:root {
+    --primary-color: #cf0f0f;
+    --primary-color-contrast: #ffffff;
+    --field-background-color: #000;
+  }
+  
+  /* Declaração das variáveis para o thema claro */
+  .light-theme {
+    --page-background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #ffffff 65%,
+      rgba(255, 255, 255, 0.75) 100%
+    );
+    --header-background-color: #e3e3e3;
+    --highlight-color: #000000;
+    --featured-font-family: "Archivo", sans-serif;
+    --character-top-image-src: url("../images/characters/kids-on-the-bike.svg");
+    --character-top-image-color: #ffffff;
+    --character-bottom-image-src: url("../images/characters/inverted-world-monster.svg");
+    --character-bottom-image-color: #e5e5e5;
+    --background-lamp-image: url("../images/backgrounds/lamps.png");
+    --footer-background-color: #b5bbbf;
+  }
+  
+  /* Declaração das variáveis para o thema escuro */
+  .dark-theme {
+    --page-background: linear-gradient(
+      180deg,
+      #050000 0%,
+      #130404 65%,
+      rgba(19, 1, 1, 0.75) 100%
+    );
+    --header-background-color: #220f0f;
+    --highlight-color: #ffffff;
+    --featured-font-family: "Rubik Glitch", sans-serif;
+    --character-bottom-image-src: url("../images/characters/kids-on-the-bike.svg");
+    --character-bottom-image-color: rgba(255, 255, 255, 0.1);
+    --character-top-image-src: url("../images/characters/inverted-world-monster.svg");
+    --character-top-image-color: #000;
+    --background-lamp-image: url("../images/backgrounds/lamps-inverted.png");
+    --footer-background-color: #000;
+  }
+
+  * {
+    margin: 0;
+    /* Faz um calculo inteligente do tamanho do elemento para que ele ocupe o tamanho que foi definido e a borda fique dentro desse tamanho. Ex: Uma div de 500px com uma borda de 100px manteria seu tamanho e a borda seria feita dentro dos 500px */
+    box-sizing: border-box;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--featured-font-family);
+    /* 3rem = 3x 16px */
+    font-size: 3rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  p {
+    color: var(--highlight-color);
+  }
+
+  p, input, textarea, label {
+    font-family: 'Libre Baskerville', serif;
+  }
+
+  button {
+    padding: 16px 32px;
+    background-color: transparent;
+    font-weight: 900;
+    font-family: var(--featured-font-family);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    /* Deixa o efeito de troca de background mais suave */
+    transition: background 1s;
+  }
+
+  /*** HEADER STYLES ***/
+
+  header {
+    background-color: var(--header-background-color);
+    min-height: 850px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Para que o before fique relativo ao header */
+    position: relative;
+  }
+
+  /* Insere um elemento antes do header */
+  header::before {
+    /* Precisa passar sempre o conteúdo */
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    /* ../ volta uma pasta, ou seja, acessa a partir da pasta assets */
+    background-image: url("../images/banner/florest.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 90%;
+    /* Saturação da imagem */
+    filter: saturate(0);
+    opacity: 0.2;
+  }
+
+  .header-content {
+    max-width: 700px;
+    padding: 80px 20px;
+    text-align: center;
+    /* Define a posição dos elementos no html, nesse caso joga essa classe para a frente */
+    z-index: 2;
+  }
+
+  .header-content img {
+    width: 80%;
+  }
+
+  .header-content p {
+    /* topo, esquerda/direita, baixo*/
+    margin: 30px 0 50px;
+  }
+
+  .header-content button {
+    border: 3px solid var(--primary-color);
+    color: var(--primary-color);
+  }
+
+  .header-content button:hover {
+    background-color: var(--primary-color);
+    color: var(--primary-color-contrast);
+  }
+
+
