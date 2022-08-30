@@ -34,7 +34,7 @@
 
       <section id="section-inverted-world" class="container">
         <div class="section-texts">
-          <h1>O Mundo Invertido</h1>
+          <h2>O Mundo Invertido</h2>
           <!-- role: Muda o tipo do elemento apenas na visibilidade semântica, não altera comportamento, serve para a interpretação do site por um robô por exemplo -->
           <p role="text">
             O Mundo Invertido parece uma cópia do nosso mundo, mas com criaturas
@@ -136,7 +136,34 @@
     
     <script type="module" src="assets/js/main.js"></script>
     <script>
-      
+
+      /* Evento que fica escutando qualquer clique na pagina */
+      window.addEventListener('click', function () {
+        /* Faz a musica começar a tocar */
+        const audio = document.getElementById('music');
+        audio.play();
+        audio.volume = 0.2;
+      })
+
+      // Função que troca o tema
+      function switchTheme() {
+        /* Se algum elemento dentro do body não possuir a classe dark-theme ele coloca a classe no elemento, se o elemento possuir essa classe ele remove */
+        document.body.classList.toggle('dark-theme');
+        document.body.classList.toggle('light-theme');
+
+        /* Altera o audio */
+        
+        /* Pega o tema que está usando */
+        const theme = document.body.classList[0];
+        /* music recebe normal-world.mpeg se a variavel theme for igual a light-theme se não recebe inverted-world.mpeg */
+        const music = theme === 'light-theme' ? 'normal-world.mpeg' : 'inverted-world.mpeg'
+
+        const audio = document.getElementById('music');
+        /* Seta o source do audio de acordo com o thema selecionado */
+        audio.src = `assets/music/${music}`;
+        audio.play;
+        audio.volume = 0.2;
+      }
     </script>
   </body>
 </html>
